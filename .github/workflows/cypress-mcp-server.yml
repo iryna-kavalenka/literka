@@ -1,0 +1,29 @@
+name: Cypress MCP server
+on:
+  - workflow_dispatch
+
+jobs:
+  cypress:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build web (development)
+        run: npx nx build web --configuration=development
+
+      - name: Serve web
+        run: npx nx serve web --configuration=development & npx wait-on http://localhost:4200
+
+      - name: Run Cypress tests
+        run: npx cypress run --config-file=apps/web-e2e/cypress.config.ts
+        env:
+          CI: true

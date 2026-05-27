@@ -2,7 +2,13 @@
   "name": "@literka/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start:web": "npx nx serve web",
+    "build:web": "npx nx build web --configuration=production",
+    "test:web": "npx nx test web",
+    "cypress:open": "npx cypress open --config-file=apps/web-e2e/cypress.config.ts",
+    "cypress:run": "npx cypress run --config-file=apps/web-e2e/cypress.config.ts"
+  },
   "private": true,
   "dependencies": {
     "@angular/common": "~21.2.0",
