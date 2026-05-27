@@ -1,0 +1,8 @@
+<button type="button" (click)="onClick()">
+  {{ name() }}
+  <span> {{isExpanded() ? '/' : ''}} </span>
+</button>
+
+@if (isExpanded()) {
+<ng-container *ngTemplateOutlet="template()"></ng-container>
+}

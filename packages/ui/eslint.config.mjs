@@ -6,13 +6,27 @@ export default [
   ...nx.configs['flat/angular-template'],
   ...baseConfig,
   {
+    files: ['**/*.json'],
+    rules: {
+      '@nx/dependency-checks': [
+        'error',
+        {
+          ignoredFiles: ['{projectRoot}/eslint.config.{js,cjs,mjs,ts,cts,mts}'],
+        },
+      ],
+    },
+    languageOptions: {
+      parser: await import('jsonc-eslint-parser'),
+    },
+  },
+  {
     files: ['**/*.ts'],
     rules: {
       '@angular-eslint/directive-selector': [
         'error',
         {
           type: 'attribute',
-          prefix: 'app',
+          prefix: 'lui',
           style: 'camelCase',
         },
       ],
@@ -20,7 +34,7 @@ export default [
         'error',
         {
           type: 'element',
-          prefix: 'app',
+          prefix: 'lui',
           style: 'kebab-case',
         },
       ],
@@ -28,8 +42,7 @@ export default [
   },
   {
     files: ['**/*.html'],
-    rules: {
-      '@angular-eslint/template/prefer-self-closing-tags': ['warn'],
-    },
+    // Override or add rules here
+    rules: {},
   },
 ];

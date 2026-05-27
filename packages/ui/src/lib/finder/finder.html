@@ -1,0 +1,11 @@
+<ul>
+  @for (item of data(); track item.id) {
+  <li>
+    @if (item.children) {
+    <button type="button" (click)="onOpenFolder(item)">{{ item.name }}</button>
+    } @else {
+    <button type="button" (click)="onOpenFile(item)">{{ item.name }}</button>
+    }
+  </li>
+  }
+</ul>

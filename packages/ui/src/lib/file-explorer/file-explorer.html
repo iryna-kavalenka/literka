@@ -1,0 +1,15 @@
+<ul>
+  @for (item of data(); track item.id) {
+  <li>
+    @if (item.children) {
+    <lui-folder [name]="item.name" [children]="item.children">
+      <ng-template>
+        <lui-file-explorer [data]="item.children" />
+      </ng-template>
+    </lui-folder>
+    } @else {
+    <lui-file [name]="item.name" />
+    }
+  </li>
+  }
+</ul>
