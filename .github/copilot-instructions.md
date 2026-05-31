@@ -33,6 +33,12 @@
 - Prefer NX commands for running, building, linting and testing; calling `npx nx show project <project>` gives authoritative available targets and options.
 - If a target behaves unexpectedly, inspect the corresponding `project.json` in the project root (e.g., `apps/web/project.json`).
 
+<!-- SPECKIT START -->
+
+Plan reference: `specs/001-image-ocr-upload/plan.md`
+
+<!-- SPECKIT END -->
+
 ---
 
 If you'd like, update this file to include any project-specific scripts, CI steps, or additional agent rules (CLAUDE.md / AGENTS.md).
