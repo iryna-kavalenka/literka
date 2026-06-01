@@ -1,0 +1,26 @@
+<section
+  class="upload-card"
+  [class.dragging]="isDragging()"
+  (dragover)="onDragOver($event)"
+  (dragleave)="onDragLeave()"
+  (drop)="onDrop($event)"
+>
+  <div class="upload-body">
+    <strong>Drop an image here</strong>
+    <span>or</span>
+    <button type="button" class="upload-button" (click)="fileInput.click()">
+      Select from device
+    </button>
+    <input
+      #fileInput
+      type="file"
+      [attr.accept]="acceptAttribute"
+      (change)="onFileChange($event)"
+      hidden
+    />
+    <p class="upload-help">PNG, JPEG, WEBP • up to {{ maxFileSizeMb() }} MB</p>
+    @if (hasError()) {
+      <lui-upload-error [message]="hasError()" />
+    }
+  </div>
+</section>

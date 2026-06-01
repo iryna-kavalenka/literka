@@ -1,0 +1,10 @@
+<section class="result-card">
+  <p class="result-message">{{ message() }}</p>
+  @if (foundText()) {
+    <div class="result-text">
+      <pre>{{ text() }}</pre>
+    </div>
+  } @else {
+    <p class="result-empty">No text was found in the image.</p>
+  }
+</section>

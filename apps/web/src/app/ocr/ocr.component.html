@@ -1,0 +1,25 @@
+<section class="ocr-page">
+  <header class="ocr-header">
+    <h1>Image OCR Upload</h1>
+    <p>Upload a valid PNG, JPEG, or WEBP image and see detected text instantly.</p>
+  </header>
+
+  <div class="ocr-grid">
+    <lui-upload (fileSelected)="onFileSelected($event)" />
+
+    <aside class="ocr-status">
+      <div class="status-card">
+        <p class="status-label">Status</p>
+        <p class="status-value">{{ uploadState.status() }}</p>
+        <p class="status-progress">Progress: {{ uploadState.progress() }}%</p>
+        <p *ngIf="uploadState.error()" class="status-error">{{ uploadState.error() }}</p>
+      </div>
+    </aside>
+  </div>
+
+  <lui-ocr-result
+    [foundText]="uploadState.foundText()"
+    [text]="uploadState.text()"
+    [message]="uploadState.message()"
+  />
+</section>

@@ -18,13 +18,13 @@ Build an Angular frontend experience in `apps/web` that accepts image uploads vi
 
 **Storage**: N/A; feature state is transient and held in frontend signal store
 
-**Testing**: `vitest-angular` for frontend unit tests, Cypress for end-to-end flow, NestJS testing module for backend endpoint tests
+**Testing**: `vitest-angular` for frontend unit tests, Cypress for end-to-end flow, NestJS testing module for backend endpoint tests, and a dedicated performance validation task for OCR response time.
 
 **Target Platform**: Browser frontend + Node.js backend API
 
 **Project Type**: Web application with backend API
 
-**Performance Goals**: Extracted text returned within 5 seconds for images <= 5 MB; upload feedback displayed immediately
+**Performance Goals**: Extracted text returned within 5 seconds for supported images <= 5 MB; upload feedback displayed immediately, with response time verified by a task in `tasks.md`.
 
 **Constraints**: 5 MB client-side upload limit, allowed MIME types `image/png`, `image/jpeg`, `image/webp`, and secure server-side Google Cloud Vision credential handling
 

@@ -64,7 +64,7 @@ A user uploads an image that contains no detectable text, and the system returns
 
 - What happens when the uploaded image is too large or the upload fails due to network issues?
 - How does the system respond when the text detection service returns an unexpected error?
-- What happens if the image contains text in a language that is unsupported or not recognized?
+- What happens if the image contains text in a language that is unsupported or not recognized? The system should still return the best available result or an empty-state response rather than failing solely due to language support.
 - How does the UI behave when the user submits the same image multiple times?
 
 ## Requirements _(mandatory)_
@@ -72,13 +72,14 @@ A user uploads an image that contains no detectable text, and the system returns
 ### Functional Requirements
 
 - **FR-001**: The frontend MUST provide both a drag-and-drop upload area and a select-from-device button so users can choose an image file to submit for text extraction.
-- **FR-002**: The backend MUST receive the uploaded image file, validate the file type, and forward it to a cloud text detection service.
+- **FR-002**: The backend MUST receive the uploaded image file, validate the file type and size, and forward supported images to a cloud text detection service.
 - **FR-003**: The backend MUST return the detected text to the frontend in a readable format.
 - **FR-004**: The frontend MUST display the extracted text clearly and enable the user to review it immediately.
 - **FR-005**: The system MUST show user-friendly error messages when upload validation fails, the backend cannot process the image, or text detection fails.
 - **FR-006**: The backend MUST reject unsupported image file formats and return a clear validation error to the frontend.
 - **FR-007**: The backend MUST handle images that contain no detectable text by returning an explicit empty-state response rather than failing.
 - **FR-008**: The frontend SHOULD enforce a 5 MB maximum image file size before upload and display a validation error if the file is too large.
+- **FR-009**: The frontend MUST allow a user to re-submit the same image file and display a new result or validation state each time without requiring a page refresh.
 
 ### Key Entities _(include if feature involves data)_
 
@@ -90,8 +91,8 @@ A user uploads an image that contains no detectable text, and the system returns
 
 ### Measurable Outcomes
 
-- **SC-001**: A user can upload a supported image (<= 5 MB) and receive extracted text within 5 seconds for normal sized images.
-- **SC-002**: At least 90% of valid image uploads return a readable text result instead of an error.
+- **SC-001**: A user can upload a supported image (<= 5 MB) and receive extracted text within 5 seconds for supported images under stable network conditions.
+- **SC-002**: The system should aim to return a readable text result for at least 90% of valid supported image uploads in representative validation samples.
 - **SC-003**: Users receive a clear failure or validation message within 2 seconds when an image cannot be processed.
 - **SC-004**: Unsupported file uploads are rejected with a clear reason displayed to the user.
 

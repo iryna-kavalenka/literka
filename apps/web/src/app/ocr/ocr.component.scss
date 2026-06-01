@@ -1,0 +1,54 @@
+.ocr-page {
+  max-width: 920px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.ocr-header {
+  margin-bottom: 1.5rem;
+}
+
+.ocr-header h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(2rem, 2.5vw, 2.75rem);
+}
+
+.ocr-header p {
+  margin: 0;
+  color: #4b5563;
+}
+
+.ocr-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1.4fr 0.6fr;
+}
+
+.status-card {
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+}
+
+.status-label {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.status-value,
+.status-progress,
+.status-error {
+  margin: 0.35rem 0;
+}
+
+.status-error {
+  color: #b91c1c;
+}
+
+@media (max-width: 780px) {
+  .ocr-grid {
+    grid-template-columns: 1fr;
+  }
+}

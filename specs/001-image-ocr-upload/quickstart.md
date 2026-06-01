@@ -8,19 +8,29 @@
 npm install
 ```
 
-2. Start the Angular web application:
+2. Configure API credentials in the backend environment. Create a local `.env` file under `apps/api/` with:
+
+```bash
+GOOGLE_APPLICATION_CREDENTIALS_JSON='{"type":"service_account", ... }'
+```
+
+3. Start the NestJS backend in a separate terminal:
+
+```bash
+npx nx serve api
+```
+
+4. Start the Angular web application:
 
 ```bash
 npx nx serve web
 ```
 
-3. In a separate terminal, start the NestJS backend once it is added to the monorepo.
+5. Open the web app at `http://localhost:4200` and navigate to the image upload page.
 
-4. Open the web app at `http://localhost:4200` and navigate to the image upload page.
+6. Use either the drag-and-drop area or the "Select from device" button to choose an image file.
 
-5. Use either the drag-and-drop area or the "Select from device" button to choose an image file.
-
-6. Submit the upload and verify the extracted text appears below the upload area.
+7. Submit the upload and verify the extracted text appears below the upload area.
 
 ## API contract
 

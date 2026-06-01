@@ -8,7 +8,15 @@
 
 ## Run tasks
 
-To run the dev server for your app, use:
+To install dependencies and run the feature locally, use:
+
+```sh
+npm install
+npx nx serve api
+npx nx serve web
+```
+
+To run the web app dev server only, use:
 
 ```sh
 npx nx serve web
